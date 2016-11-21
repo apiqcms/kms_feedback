@@ -5,26 +5,26 @@ This extension allows submitting contact/callback/feedback forms from frontend s
 ## Installation
 
 1. Add to Gemfile:
-
-    gem "kms_feedback"
-    # or for edge version:
-    gem "kms_feedback", github: "webgradus/kms_feedback"
+    
+        gem "kms_feedback"
+        # or for edge version:
+        gem "kms_feedback", github: "webgradus/kms_feedback"
 
 2. Run generator:
 
-    rails g kms_feedback:install
+        rails g kms_feedback:install
 
 3. Copy migrations:
 
-    rails kms_feedback:install:migrations
+        rails kms_feedback:install:migrations
 
 4. Migrate:
 
-    rails db:migrate
+        rails db:migrate
 
 5. Recompile assets:
 
-    rails assets:precompile
+        rails assets:precompile
 
 6. Restart KMS instance
 
@@ -50,6 +50,7 @@ Form validation should happen completely on client side (you could use HTML5 att
 You can use only some of fields - only `name` and `phone` for example.
 
 To make AJAX submit you would have something like this JavaScript code:
+
     <script>
       $(document).ready(function(){
         $('input[type="button"]').click(function(){
@@ -64,11 +65,11 @@ This extension also provides adding Recaptcha to forms. For adding validation wi
 
 1. Insert this fragment before closing </head> in your HTML:
 
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
 
 2. Insert this fragment at the bottom of <form> contents (where you need to place reCAPTCHA widget):
 
-    <div class="g-recaptcha" data-sitekey="RECAPTCHA_PUBLIC_KEY"></div>
+        <div class="g-recaptcha" data-sitekey="RECAPTCHA_PUBLIC_KEY"></div>
 
 3. Enable Recaptcha under "Settings" (check dropdown menu on avatar clicking)
 
