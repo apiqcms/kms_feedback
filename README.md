@@ -6,7 +6,9 @@ This extension allows submitting contact/callback/feedback forms from frontend s
 
 1. Add to Gemfile:
 
-    gem "kms_feedback", git: "git@gitlab.com:webgradus/kms_feedback.git"
+    gem "kms_feedback"
+    # or for edge version:
+    gem "kms_feedback", github: "webgradus/kms_feedback"
 
 2. Run generator:
 
