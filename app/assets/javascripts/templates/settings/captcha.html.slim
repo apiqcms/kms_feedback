@@ -1,0 +1,9 @@
+.form-group
+  label for="enable_recaptcha" style="margin-right:10px;" = I18n.t(:enable_recaptcha)
+  toggle-switch ng-model="settings.values.enable_recaptcha" on-label=I18n.t(:yes_word) off-label=I18n.t(:no_word)
+.form-group ng-if="settings.values.enable_recaptcha"
+  label = I18n.t(:recaptcha_public_key)
+  input.form-control type="text" ng-model="settings.values.recaptcha_public_key" required=""
+.form-group ng-if="settings.values.enable_recaptcha"
+  label = I18n.t(:recaptcha_private_key)
+  input.form-control type="text" ng-model="settings.values.recaptcha_private_key" required=""

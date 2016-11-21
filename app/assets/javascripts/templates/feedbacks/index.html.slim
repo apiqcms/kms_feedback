@@ -1,0 +1,31 @@
+.row
+  .col-lg-12
+    div.pull-left ng-dropdown-multiselect="" options='users' selected-model='alertableUsers' extra-settings="select_options" translation-texts="select_translations" style="padding-right: 20px;"
+    a.btn.btn-info ng-click="selectAlertableUsers()"
+      i.fa.fa-check
+.row
+  .col-lg-12
+    .widget
+      .widget-header
+        i.fa.fa-comments-o
+        = Kms::FeedbackMessage.model_name.human(count: 1.1)
+        /a.pull-right href="#"  Manage
+      .widget-body.no-padding
+        .table-responsive
+          table.table
+            tbody
+              tr ng-repeat="feedback in feedbacks"
+                td style="width: 10%"
+                  | {{ feedback.name }}
+                td style="width: 10%"
+                  | {{ feedback.phone }}
+                td style="width: 10%"
+                  a href="mailto:{{ feedback.email }}"
+                    | {{ feedback.email }}
+                td
+                  | {{ feedback.message }}
+                td style="width: 10%"
+                  | {{ feedback.created_at | date: 'dd MMM yyyy HH:mm' }}
+                td style="width: 10%"
+                  a.btn.btn-sm.btn-danger ng-click="destroy(feedback)" ng-show='currentUser.admin'
+                    i.fa.fa-times

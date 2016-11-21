@@ -1,0 +1,26 @@
+en:
+  catalog: "Catalog"
+  feedback: 'Feedback'
+  enable_recaptcha: 'Enable Recaptcha'
+  recaptcha_public_key: 'Recaptcha Public Key'
+  recaptcha_private_key: 'Recaptcha Private Key'
+  select_users_to_notify: 'Select users to notify'
+  mark_all: 'Mark all'
+  unmark_all: 'Unmark all'
+  selected: 'selected'
+  feedback_mailer:
+    new_feedback_from_site: 'New message from website'
+    from: 'Email address that will be used for sending email notifications'
+  activerecord:
+    models:
+      kms/feedback_message:
+        one: "Message"
+        few: "Messages"
+        many: "Messages"
+        other: "Messages"
+    attributes:
+      kms/feedback_message:
+        name: "Name"
+        phone: "Phone"
+        email: "Email"
+        message: "Message"

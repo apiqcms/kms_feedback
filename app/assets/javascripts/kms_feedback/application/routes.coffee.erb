@@ -1,0 +1,17 @@
+'use strict'
+
+angular.module('KMS').config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
+
+    # Application routes
+    $stateProvider
+        .state('feedback_messages', {
+            url: '/kms/feedbacks',
+            views:
+              "header":
+                template: "<%= Kms::FeedbackMessage.model_name.human(count: 1.1) %>"
+              "@":
+                controller: 'FeedbacksController',
+                controllerAs: 'feedbacks',
+                templateUrl: 'feedbacks/index.html',
+        })
+]

@@ -1,0 +1,8 @@
+.bundle/
+log/*.log
+pkg/
+spec/internal/config/database.yml
+spec/internal/log/*.log
+spec/internal/tmp/
+spec/internal/.sass-cache
+Gemfile.lock

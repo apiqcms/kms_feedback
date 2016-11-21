@@ -1,0 +1,47 @@
+FeedbacksController = ($scope, $state, $cookieStore, Restangular, $stateParams) ->
+  Restangular.all('users').customGET('kms_user').then (current_user) ->
+    $scope.currentUser = current_user
+    $scope.currentUser.admin = $scope.currentUser.role == 'admin'
+  #Alertable users
+  $scope.users = []
+  $scope.select_options = {
+    displayProp: 'email',
+    idProp: 'id'
+  }
+  $scope.select_translations = {
+    buttonDefaultText: '<%= I18n.t(:select_users_to_notify) %>',
+    checkAll: '<%= I18n.t(:mark_all) %>',
+    uncheckAll: '<%= I18n.t(:unmark_all) %>',
+    dynamicButtonTextSuffix: '<%= I18n.t(:selected) %>'
+  }
+  $scope.alertableUsers = []
+  Restangular.all('users').getList().then (users)->
+    $scope.users = users
+    users.forEach (ent) ->
+      if ent.alert
+        $scope.alertableUsers.push ent
+
+  $scope.selectAlertableUsers = () ->
+    Restangular.all('users').customPOST('', 'alertable', {'users_ids[]': $scope.alertableUsers.map((us) -> us.id)})
+
+
+  $scope.store = Restangular.all('feedbacks')
+
+  $scope.store.getList().then (feedbacks)->
+    $scope.feedbacks = feedbacks
+
+  if $stateParams.id
+    $scope.store.get($stateParams.id).then (category)->
+      $scope.feedback = feedback
+  else
+    $scope.feedback = {}
+
+
+  $scope.destroy = (feedback)->
+    if(confirm('<%= I18n.t(:are_you_sure) %>'))
+      feedback.remove().then ->
+        $scope.feedbacks = _.without($scope.feedbacks, feedback)
+
+
+angular.module('KMS')
+    .controller('FeedbacksController', ['$scope', '$state', '$cookieStore', 'Restangular', '$stateParams', FeedbacksController])

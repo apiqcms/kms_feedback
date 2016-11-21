@@ -1,0 +1,26 @@
+ru:
+  catalog: "Каталог"
+  feedback: 'Обратная связь'
+  enable_recaptcha: 'Включить Recaptcha'
+  recaptcha_public_key: 'Recaptcha Public Key'
+  recaptcha_private_key: 'Recaptcha Private Key'
+  select_users_to_notify: 'Выберите пользователей для уведомления'
+  mark_all: 'Отметить всех'
+  unmark_all: 'Снять со всех'
+  selected: 'выбран(о)'
+  feedback_mailer:
+    new_feedback_from_site: 'Новая заявка с сайта'
+    from: 'Email адрес, с которого отправляются уведомления по почте'
+  activerecord:
+    models:
+      kms/feedback_message:
+        one: "Сообщение"
+        few: "Сообщения"
+        many: "Сообщений"
+        other: "Сообщения"
+    attributes:
+      kms/feedback_message:
+        name: "Имя"
+        phone: "Телефон"
+        email: "Email"
+        message: "Сообщение"

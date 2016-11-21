@@ -1,0 +1,25 @@
+<h1><%= I18n.t(:new_feedback_from_site, scope: :feedback_mailer) %></h1>
+
+<% if @feedback.name.present? %>
+  <p>
+    <%= Kms::FeedbackMessage.human_attribute_name(:name) %>: <%= @feedback.name %>
+  </p>
+<% end %>
+
+<% if @feedback.phone.present? %>
+  <p>
+    Телефон: <%= @feedback.phone %>
+  </p>
+<% end %>
+
+<% if @feedback.email.present? %>
+  <p>
+    Email: <%= @feedback.email %>
+  </p>
+<% end %>
+
+<% if @feedback.message.present? %>
+  <p>
+    Сообщение: <%= @feedback.message %>
+  </p>
+<% end %>
