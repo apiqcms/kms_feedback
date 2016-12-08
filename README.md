@@ -5,7 +5,7 @@ This extension allows submitting contact/callback/feedback forms from frontend s
 ## Installation
 
 1. Add to Gemfile:
-    
+
         gem "kms_feedback"
         # or for edge version:
         gem "kms_feedback", github: "webgradus/kms_feedback"
@@ -32,7 +32,7 @@ This extension allows submitting contact/callback/feedback forms from frontend s
 
 Your form on webpage should look like this:
 
-    <form action="/kms/feedbacks" method="post">
+    <form action="/feedbacks" method="post">
         <input type="hidden" name='authenticity_token' value='{{ request.form_authenticity_token }}'>
 
         <input type="text" name="feedback[name]" placeholder="Name">
@@ -54,7 +54,7 @@ To make AJAX submit you would have something like this JavaScript code:
     <script>
       $(document).ready(function(){
         $('input[type="button"]').click(function(){
-          $.post('/kms/feedbacks', $('form[action="/kms/feedbacks"]').serialize());
+          $.post('/feedbacks', $('form[action="/feedbacks"]').serialize());
         });
       });
     </script>
