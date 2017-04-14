@@ -1,6 +1,8 @@
 module Kms
   module Public
     class FeedbackMessagesController < ActionController::Base
+      protect_from_forgery with: :exception
+
       def create
         @feedback = Kms::FeedbackMessage.new(feedback_params)
         if Kms::Settings.instance.values['enable_recaptcha']
