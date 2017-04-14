@@ -7,3 +7,6 @@
 .form-group ng-if="settings.values.enable_recaptcha"
   label = I18n.t(:recaptcha_private_key)
   input.form-control type="text" ng-model="settings.values.recaptcha_private_key" required=""
+.form-group
+  label for="enable_invisible_captcha" style="margin-right:10px;" = I18n.t(:enable_invisible_captcha)
+  toggle-switch ng-model="settings.values.enable_invisible_captcha" on-label=I18n.t(:yes_word) off-label=I18n.t(:no_word)

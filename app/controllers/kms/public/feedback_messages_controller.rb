@@ -5,11 +5,7 @@ module Kms
 
       def create
         @feedback = Kms::FeedbackMessage.new(feedback_params)
-        if Kms::Settings.instance.values['enable_recaptcha']
-          verify_recaptcha(model: @feedback, private_key: Kms::Settings.instance.values['recaptcha_private_key']) && @feedback.save
-        else
-          @feedback.save
-        end
+        Kms::CaptchaVerifier.new(@feedback, feedback_params).verify && @feedback.save
         if @feedback.errors.present?
           render json: @feedback.to_json(methods: :errors), status: :unprocessable_entity
         else
@@ -20,7 +16,7 @@ module Kms
       protected
 
       def feedback_params
-        params.require(:feedback).permit(:name, :phone, :email, :message)
+        params.require(:feedback).permit(:name, :phone, :email, :message, :captcha)
       end
     end
   end

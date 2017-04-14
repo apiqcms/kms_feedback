@@ -2,6 +2,7 @@ ru:
   catalog: "Каталог"
   feedback: 'Обратная связь'
   enable_recaptcha: 'Включить Recaptcha'
+  enable_invisible_captcha: 'Включить Invisible Captcha'
   recaptcha_public_key: 'Recaptcha Public Key'
   recaptcha_private_key: 'Recaptcha Private Key'
   select_users_to_notify: 'Выберите пользователей для уведомления'

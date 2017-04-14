@@ -2,6 +2,7 @@ en:
   catalog: "Catalog"
   feedback: 'Feedback'
   enable_recaptcha: 'Enable Recaptcha'
+  enable_invisible_captcha: 'Enable Invisible Captcha'
   recaptcha_public_key: 'Recaptcha Public Key'
   recaptcha_private_key: 'Recaptcha Private Key'
   select_users_to_notify: 'Select users to notify'
