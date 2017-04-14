@@ -73,4 +73,14 @@ This extension also provides adding Recaptcha to forms. For adding validation wi
 
 3. Enable Recaptcha under "Settings" (check dropdown menu on avatar clicking)
 
+Another way to prevent spam is to enable Invisible Captcha (check out Settings in your KMS admin section). For adding validation with InvisibleCaptcha:
+
+1. Insert this fragment into your feedback form:
+
+        <div style="display:none;">
+         <input type="text" name="feedback[captcha]" placeholder="Don't fill this if you're human">
+        </div>
+
+2. Enable Invisible Captcha under "Settings" (check dropdown menu on avatar clicking)
+
 This project rocks and uses MIT-LICENSE.
